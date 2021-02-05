@@ -10,6 +10,17 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+
+	$("a.thumbnail").click(projectThumbnailClick);
+}
+
+function projectThumbnailClick(e){
+	e.preventDefault();
+	var original_name, new_name;
+	original_name = $(this).text().replace(/\s+/g,' ').trim();
+	new_name = anagrammedName(original_name);
+	console.log(original_name + ' clicked and will be turned into ' + new_name);
+	$(this).text(new_name);
 }
 
 function anagrammedName(name) {
